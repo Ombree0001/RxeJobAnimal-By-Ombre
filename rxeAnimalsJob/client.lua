@@ -791,8 +791,8 @@ function MenuBossAnimalerie()
                 Citizen.Wait(0)
                     RageUI.IsVisible(Mboss, true, true, true, function()
 
-					if societypolicemoney ~= nil then
-						RageUI.Separator("~b~Argent société : ~s~"..societypolicemoney.."$")
+					if societyAnimaleriemoney ~= nil then
+						RageUI.Separator("~b~Argent société : ~s~"..societyAnimaleriemoney.."$")
 					end
 
                     RageUI.ButtonWithStyle("Retirer de l'argent",nil, {RightLabel = "→→"}, true, function(Hovered, Active, Selected)
@@ -835,16 +835,16 @@ function MenuBossAnimalerie()
     end
 end   
 
-function RefreshpoliceMoney()
+function RefreshAnimalerieMoney()
     if ESX.PlayerData.job ~= nil and ESX.PlayerData.job.grade_name == 'boss' then
-        ESX.TriggerServerCallback('five_society:getSocietyMoney', function(money)
-            UpdateSocietypoliceMoney(money)
+        ESX.TriggerServerCallback('esx_society:getSocietyMoney', function(money)
+            UpdateSocietyMoney(money)
         end, ESX.PlayerData.job.name)
     end
 end
 
-function UpdateSocietypoliceMoney(money)
-    societypolicemoney = ESX.Math.GroupDigits(money)
+function UpdateSocietyMoney(money)
+    societyAnimaleriemoney = ESX.Math.GroupDigits(money)
 end
 
 if Config.ESXSociety then
@@ -876,7 +876,7 @@ Citizen.CreateThread(function()
                 RageUI.Text({ message = "Appuyez sur ~b~[E]~s~ pour ouvrir →→ ~b~Action patron", time_display = 1 })
                     if IsControlJustPressed(1,51) then
 						RefreshpoliceMoney()
-						MenuBossAnimalerie()
+						RefreshAnimalerieMoney()
                     end
                 end
             end

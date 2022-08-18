@@ -875,7 +875,7 @@ Citizen.CreateThread(function()
                 Timer = 0   
                 RageUI.Text({ message = "Appuyez sur ~b~[E]~s~ pour ouvrir →→ ~b~Action patron", time_display = 1 })
                     if IsControlJustPressed(1,51) then
-						RefreshpoliceMoney()
+						MenuBossAnimalerie()
 						RefreshAnimalerieMoney()
                     end
                 end

